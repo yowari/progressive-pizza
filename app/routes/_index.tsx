@@ -3,7 +3,7 @@ import {
   type ActionFunctionArgs,
   type MetaFunction,
 } from '@remix-run/node';
-import { Form } from '@remix-run/react';
+import { Form, useActionData } from '@remix-run/react';
 
 let nextOrderId = 0;
 
@@ -19,6 +19,10 @@ export async function action({ request }: ActionFunctionArgs) {
   const size = form.get('size');
   const toppings = form.getAll('toppings');
 
+  if (!size) {
+    return { errors: { size: 'Please select the pizza size' } };
+  }
+
   const orderId = nextOrderId++;
   console.log(
     `[order #${orderId}] Ordering a ${size} pizza` +
@@ -29,6 +33,8 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function Index() {
+  const actionData = useActionData<typeof action>();
+
   return (
     <>
       <main>
@@ -52,6 +58,12 @@ export default function Index() {
               <input id="large" type="radio" name="size" value="large" />
               Large
             </label>
+
+            {actionData?.errors?.size && (
+              <p>
+                <em>{actionData?.errors?.size}</em>
+              </p>
+            )}
           </fieldset>
 
           <fieldset>
