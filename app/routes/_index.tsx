@@ -5,6 +5,8 @@ import {
 } from '@remix-run/node';
 import { Form } from '@remix-run/react';
 
+let nextOrderId = 0;
+
 export const meta: MetaFunction = () => {
   return [
     { title: 'New Remix App' },
@@ -17,12 +19,13 @@ export async function action({ request }: ActionFunctionArgs) {
   const size = form.get('size');
   const toppings = form.getAll('toppings');
 
+  const orderId = nextOrderId++;
   console.log(
-    `Ordering a ${size} pizza` +
+    `[order #${orderId}] Ordering a ${size} pizza` +
       (toppings.length > 0 ? ` with ${toppings.join(', ')}!` : '')
   );
 
-  return redirect('/confirmation');
+  return redirect(`/confirmation?orderId=${orderId}`);
 }
 
 export default function Index() {
