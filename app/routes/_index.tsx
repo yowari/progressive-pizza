@@ -1,4 +1,9 @@
-import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
+import {
+  redirect,
+  type ActionFunctionArgs,
+  type MetaFunction,
+} from '@remix-run/node';
+import { Form } from '@remix-run/react';
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,9 +14,15 @@ export const meta: MetaFunction = () => {
 
 export async function action({ request }: ActionFunctionArgs) {
   const form = await request.formData();
-  console.log(form.get('size'));
-  console.log(form.getAll('toppings'));
-  return {};
+  const size = form.get('size');
+  const toppings = form.getAll('toppings');
+
+  console.log(
+    `Ordering a ${size} pizza` +
+      (toppings.length > 0 ? ` with ${toppings.join(', ')}!` : '')
+  );
+
+  return redirect('/confirmation');
 }
 
 export default function Index() {
@@ -20,7 +31,7 @@ export default function Index() {
       <main>
         <h2>Remixez votre pizza</h2>
 
-        <form method="POST" action="?index">
+        <Form method="POST" action="?index">
           <fieldset>
             <legend>Selectionnez la taille</legend>
 
@@ -140,7 +151,7 @@ export default function Index() {
           </fieldset>
 
           <button type="submit">Commander</button>
-        </form>
+        </Form>
       </main>
     </>
   );
