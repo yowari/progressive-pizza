@@ -1,5 +1,8 @@
 import type { LoaderFunctionArgs } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { Link, useLoaderData } from '@remix-run/react';
+import { Button } from '~/components/ui/Button';
+import { Layout } from '~/components/ui/Layout';
+import { Message } from '~/components/ui/Message';
 
 export function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
@@ -16,12 +19,20 @@ export default function Confirmation() {
   const { orderId } = useLoaderData<typeof loader>();
 
   return (
-    <main>
-      <h2>Commande #{orderId} en cours de préparation</h2>
-      <p>
-        Merci pour votre commande. Votre pizza sera prête dans quelques minutes.
-        Vous serez notifié une fois que c&apos;est pr&ecirc;t.
-      </p>
-    </main>
+    <Layout center>
+      <Message
+        title="Merci pour votre commande"
+        subtitle={`Commande n° ${orderId}`}
+        imageUrl="/sizes/medium.svg"
+        actions={
+          <Button as={Link} to="/">
+            Lancer une nouvelle commande
+          </Button>
+        }
+      >
+        Votre pizza sera prête dans quelques minutes. Vous serez notifié une
+        fois que c&apos;est pr&ecirc;t.
+      </Message>
+    </Layout>
   );
 }

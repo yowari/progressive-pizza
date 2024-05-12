@@ -4,6 +4,13 @@ import {
   type MetaFunction,
 } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
+import { Button } from '~/components/ui/Button';
+import { Checkbox } from '~/components/ui/Checkbox';
+import { Text } from '~/components/ui/Text';
+import { Radio } from '~/components/ui/Radio';
+import { Layout } from '~/components/ui/Layout';
+import { Flex } from '~/components/ui/Flex';
+import { Grid } from '~/components/ui/Grid';
 
 let nextOrderId = 0;
 
@@ -36,138 +43,159 @@ export default function Index() {
   const actionData = useActionData<typeof action>();
 
   return (
-    <>
-      <main>
-        <h2>Remixez votre pizza</h2>
+    <Layout>
+      <Text className="mb-4" as="h2" size="2xl" weight="bold">
+        Remixez votre pizza
+      </Text>
 
-        <Form method="POST" action="?index">
-          <fieldset>
-            <legend>Selectionnez la taille</legend>
+      <Form method="POST" action="?index">
+        <fieldset className="my-4">
+          <Text className="mb-4" as="legend" size="lg" weight="bold">
+            Selectionnez la taille
+          </Text>
 
-            <label htmlFor="small">
-              <input id="small" type="radio" name="size" value="small" />
+          <Flex>
+            <Radio
+              type="radio"
+              name="size"
+              value="small"
+              imageUrl="/sizes/small.svg"
+            >
               Small
-            </label>
+            </Radio>
 
-            <label htmlFor="medium">
-              <input id="medium" type="radio" name="size" value="medium" />
+            <Radio
+              type="radio"
+              name="size"
+              value="medium"
+              imageUrl="/sizes/medium.svg"
+            >
               Medium
-            </label>
+            </Radio>
 
-            <label htmlFor="large">
-              <input id="large" type="radio" name="size" value="large" />
+            <Radio
+              type="radio"
+              name="size"
+              value="large"
+              imageUrl="/sizes/large.svg"
+            >
               Large
-            </label>
+            </Radio>
+          </Flex>
 
-            {actionData?.errors?.size && (
-              <p>
-                <em>{actionData?.errors?.size}</em>
-              </p>
-            )}
-          </fieldset>
+          {actionData?.errors?.size && (
+            <Text size="sm" color="danger">
+              <em>{actionData?.errors?.size}</em>
+            </Text>
+          )}
+        </fieldset>
 
-          <fieldset>
-            <legend>Choisissez votre garniture</legend>
+        <fieldset className="my-4">
+          <Text className="mb-4" as="legend" size="lg" weight="bold">
+            Choisissez votre garniture
+          </Text>
 
-            <label htmlFor="anchovy">
-              <input
-                id="anchovy"
-                type="checkbox"
-                name="toppings"
-                value="anchovy"
-              />
+          <Grid>
+            <Checkbox
+              name="toppings"
+              value="anchovy"
+              imageUrl="/toppings/anchovy.svg"
+            >
               Anchois
-            </label>
+            </Checkbox>
 
-            <label htmlFor="bacon">
-              <input id="bacon" type="checkbox" name="toppings" value="bacon" />
+            <Checkbox
+              name="toppings"
+              value="bacon"
+              imageUrl="/toppings/bacon.svg"
+            >
               Bacon
-            </label>
+            </Checkbox>
 
-            <label htmlFor="basil">
-              <input id="basil" type="checkbox" name="toppings" value="basil" />
+            <Checkbox
+              name="toppings"
+              value="basil"
+              imageUrl="/toppings/basil.svg"
+            >
               Basilic
-            </label>
+            </Checkbox>
 
-            <label htmlFor="chili">
-              <input id="chili" type="checkbox" name="toppings" value="chili" />
+            <Checkbox
+              name="toppings"
+              value="chili"
+              imageUrl="/toppings/chili.svg"
+            >
               Piment
-            </label>
+            </Checkbox>
 
-            <label htmlFor="mozzarella">
-              <input
-                id="mozzarella"
-                type="checkbox"
-                name="toppings"
-                value="mozzarella"
-              />
+            <Checkbox
+              name="toppings"
+              value="mozzarella"
+              imageUrl="/toppings/mozzarella.svg"
+            >
               Mozzarella
-            </label>
+            </Checkbox>
 
-            <label htmlFor="mushroom">
-              <input
-                id="mushroom"
-                type="checkbox"
-                name="toppings"
-                value="mushroom"
-              />
+            <Checkbox
+              name="toppings"
+              value="mushroom"
+              imageUrl="/toppings/mushroom.svg"
+            >
               Champignon
-            </label>
+            </Checkbox>
 
-            <label htmlFor="olive">
-              <input id="olive" type="checkbox" name="toppings" value="olive" />
+            <Checkbox
+              name="toppings"
+              value="olive"
+              imageUrl="/toppings/olive.svg"
+            >
               Olive
-            </label>
+            </Checkbox>
 
-            <label htmlFor="onion">
-              <input id="onion" type="checkbox" name="toppings" value="onion" />
+            <Checkbox
+              name="toppings"
+              value="onion"
+              imageUrl="/toppings/onion.svg"
+            >
               Oignon
-            </label>
+            </Checkbox>
 
-            <label htmlFor="pepper">
-              <input
-                id="pepper"
-                type="checkbox"
-                name="toppings"
-                value="pepper"
-              />
+            <Checkbox
+              name="toppings"
+              value="pepper"
+              imageUrl="/toppings/pepper.svg"
+            >
               Poivre
-            </label>
+            </Checkbox>
 
-            <label htmlFor="pepperoni">
-              <input
-                id="pepperoni"
-                type="checkbox"
-                name="toppings"
-                value="pepperoni"
-              />
+            <Checkbox
+              name="toppings"
+              value="pepperoni"
+              imageUrl="/toppings/pepperoni.svg"
+            >
               Pepperoni
-            </label>
+            </Checkbox>
 
-            <label htmlFor="sweetcorn">
-              <input
-                id="sweetcorn"
-                type="checkbox"
-                name="toppings"
-                value="sweetcorn"
-              />
-              Mais
-            </label>
+            <Checkbox
+              name="toppings"
+              value="sweetcorn"
+              imageUrl="/toppings/sweetcorn.svg"
+            >
+              Maïs
+            </Checkbox>
 
-            <label htmlFor="tomato">
-              <input
-                id="tomato"
-                type="checkbox"
-                name="toppings"
-                value="tomato"
-              />
+            <Checkbox
+              name="toppings"
+              value="tomato"
+              imageUrl="/toppings/tomato.svg"
+            >
               Tomate
-            </label>
-          </fieldset>
+            </Checkbox>
+          </Grid>
+        </fieldset>
 
-          <button type="submit">Commander</button>
-        </Form>
-      </main>
-    </>
+        <Button type="submit">Commander</Button>
+      </Form>
+    </Layout>
   );
 }
