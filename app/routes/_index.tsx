@@ -43,12 +43,18 @@ export default function Index() {
   const actionData = useActionData<typeof action>();
 
   return (
-    <Layout>
+    <Layout
+      bottomSheet={
+        <Button form="pizza-form" type="submit" fullWidth>
+          Commander
+        </Button>
+      }
+    >
       <Text className="mb-4" as="h2" size="2xl" weight="bold">
         Remixez votre pizza
       </Text>
 
-      <Form method="POST" action="?index">
+      <Form id="pizza-form" method="POST" action="?index">
         <fieldset className="my-4">
           <Text className="mb-4" as="legend" size="lg" weight="bold">
             Selectionnez la taille
@@ -194,7 +200,9 @@ export default function Index() {
           </Grid>
         </fieldset>
 
-        <Button type="submit">Commander</Button>
+        <Button className="hidden md:inline-block" type="submit">
+          Commander
+        </Button>
       </Form>
     </Layout>
   );
