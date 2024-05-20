@@ -7,10 +7,10 @@ type LayoutProps = {
   bottomSheet?: ReactNode;
 };
 
-export function Layout({ children, center, bottomSheet }: LayoutProps) {
+export function Layout({ children, center = false, bottomSheet }: LayoutProps) {
   return (
     <div
-      className={`${classes.backgroundPattern} min-h-screen flex flex-col items-center`}
+      className={`min-h-screen flex flex-col items-center ${classes.backgroundPattern}`}
     >
       <main
         className={`w-full max-w-screen-lg flex-grow p-4 ${
