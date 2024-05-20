@@ -17,7 +17,7 @@
 }
 
 .pizza__board {
-  background: url(toppings/board.svg) no-repeat 0 20px;
+  background: url(/toppings/board.svg) no-repeat 0 20px;
   background-size: contain;
   width: 500px;
   height: 342px;
@@ -28,7 +28,7 @@
 }
 
 .pizza__base {
-  background: url(toppings/base.svg) no-repeat;
+  background: url(/toppings/base.svg) no-repeat;
   background-size: contain;
   width: 390px;
   height: 322px;
@@ -54,7 +54,7 @@
 }
 
 .pizza__topping--anchovy {
-  background-image: url(toppings/anchovy.svg);
+  background-image: url(/toppings/anchovy.svg);
   width: 51px;
   height: 37px;
 }
@@ -75,7 +75,7 @@
 }
 
 .pizza__topping--bacon {
-  background-image: url(toppings/bacon.svg);
+  background-image: url(/toppings/bacon.svg);
   width: 56px;
   height: 31px;
 }
@@ -102,7 +102,7 @@
 }
 
 .pizza__topping--basil {
-  background-image: url(toppings/basil.svg);
+  background-image: url(/toppings/basil.svg);
   width: 46px;
   height: 32px;
 }
@@ -124,7 +124,7 @@
 }
 
 .pizza__topping--chili {
-  background-image: url(toppings/chili.svg);
+  background-image: url(/toppings/chili.svg);
   width: 63px;
   height: 35px;
 }
@@ -151,7 +151,7 @@
 }
 
 .pizza__topping--mozzarella {
-  background-image: url(toppings/mozzarella.svg);
+  background-image: url(/toppings/mozzarella.svg);
   width: 46px;
   height: 32px;
 }
@@ -171,7 +171,7 @@
   display: none;
 }
 .pizza__topping--mushroom {
-  background-image: url(toppings/mushroom.svg);
+  background-image: url(/toppings/mushroom.svg);
   width: 45px;
   height: 26px;
 }
@@ -198,7 +198,7 @@
 }
 
 .pizza__topping--olive {
-  background-image: url(toppings/olive.svg);
+  background-image: url(/toppings/olive.svg);
   width: 45px;
   height: 26px;
 }
@@ -223,7 +223,7 @@
 }
 
 .pizza__topping--onion {
-  background-image: url(toppings/onion.svg);
+  background-image: url(/toppings/onion.svg);
   width: 57px;
   height: 36px;
 }
@@ -247,7 +247,7 @@
   display: none;
 }
 .pizza__topping--pepper {
-  background-image: url(toppings/pepper.svg);
+  background-image: url(/toppings/pepper.svg);
   width: 57px;
   height: 36px;
 }
@@ -272,7 +272,7 @@
   top: 147px;
 }
 .pizza__topping--pepperoni {
-  background-image: url(toppings/pepperoni.svg);
+  background-image: url(/toppings/pepperoni.svg);
   width: 57px;
   height: 36px;
 }
@@ -298,7 +298,7 @@
 }
 
 .pizza__topping--sweetcorn {
-  background-image: url(toppings/sweetcorn.svg);
+  background-image: url(/toppings/sweetcorn.svg);
   width: 57px;
   height: 36px;
 }
@@ -319,7 +319,7 @@
 }
 
 .pizza__topping--tomato {
-  background-image: url(toppings/tomato.svg);
+  background-image: url(/toppings/tomato.svg);
   width: 57px;
   height: 36px;
 }
